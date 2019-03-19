@@ -73,8 +73,9 @@
                             </Button>
                             <Button
                                 Style="{StaticResource MaterialDesignFlatButton}"
-                                Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                                Margin="0 4 0 0" x:Name="btnDangXuat">
+                                    
+                                  Margin="0 4 0 0" x:Name="btnDangXuat"
+                                Click="BtnDangXuat_Click">
                                 Đăng xuất
                             </Button>
                         </StackPanel>
@@ -207,8 +208,6 @@
 
                 <GridView>
                     <GridView.Columns>
-
-
                         <GridViewColumn  Width="32">
 
                         <GridViewColumn.CellTemplate >

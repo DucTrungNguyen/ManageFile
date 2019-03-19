@@ -48,11 +48,11 @@ namespace SubmitFile
                 {
                     var fullName = dt.Rows[0]["TENDAU"].ToString()  + " " + dt.Rows[0]["TENCUOI"].ToString();
                     Boolean isLogin = true;
-                    MainWindow.hasInfo.Add("Ten", user);
-                    MainWindow.hasInfo.Add("PathFTP", user);
-                    MainWindow.hasInfo.Add("TenDau", dt.Rows[0]["TENDAU"].ToString());
-                    MainWindow.hasInfo.Add("TenCuoi", dt.Rows[0]["TENCUOI"].ToString());
-                    MainWindow.hasInfo.Add("FullName", fullName);
+                    MainWindow.hasInfo["Ten"] =  user;
+                    MainWindow.hasInfo["PathFTP"] =user;
+                    MainWindow.hasInfo["TenDau"] = dt.Rows[0]["TENDAU"].ToString();
+                    MainWindow.hasInfo["TenCuoi"] = dt.Rows[0]["TENCUOI"].ToString();
+                    MainWindow.hasInfo["FullName"] = fullName ;
                     Switcher.Close(isLogin);
                 }
                 else

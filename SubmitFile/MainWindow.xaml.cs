@@ -28,22 +28,18 @@ namespace SubmitFile
     public partial class MainWindow : Window
     {
         private Boolean isLogin = false;
-        static string host = "ftp://svn.3asoft.vn";
+        //static string host = "ftp://svn.3asoft.vn";
+        static string host = "ftp://127.0.0.1";
         private Hashtable hasIcon = new Hashtable();
         
         public static Hashtable hasInfo = new Hashtable();
         public MainWindow()
         {
             InitializeComponent();
-            
-        }
-        public static FtpClient ftp = new FtpClient(host, "trungnguyen", "trung123");
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
 
 
-
-            hasIcon.Add(".xls", @"resource\excel.png");
+            //hash path icon
+            hasIcon.Add(".xls", @"resource\excel.png"); 
             hasIcon.Add(".doc", @"resource\word.png");
             hasIcon.Add(".docx", @"resource\word.png");
             hasIcon.Add(".pdf", @"resource\pdf.png");
@@ -52,14 +48,24 @@ namespace SubmitFile
             hasIcon.Add(".png", @"resource\picture.png");
             hasIcon.Add(".jpg", @"resource\picture.png");
             hasIcon.Add(".txt", @"resource\txt.png");
-            hasIcon.Add(".pptx",@"resource\pptx.png");
+            hasIcon.Add(".pptx", @"resource\pptx.png");
 
 
-
-
+            // hash infomation
+            MainWindow.hasInfo.Add("Ten", "");
+            MainWindow.hasInfo.Add("PathFTP", "");
+            MainWindow.hasInfo.Add("TenDau", "");
+            MainWindow.hasInfo.Add("TenCuoi", "");
+            MainWindow.hasInfo.Add("FullName", "");
             dbConnect.GetConnect();
-            
 
+        }
+
+        public static FtpClient ftp = new FtpClient(host, "trungnguyen", "trung123"); // tao doi tuong FTP (File Tranfer Protocl
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            
             if (!isLogin)
             {
                 this.IsEnabled = true;
@@ -71,8 +77,7 @@ namespace SubmitFile
                     this.Close();
                     return;
                 }
-
-                    
+ 
                 ftp.userFolder = hasInfo["Ten"].ToString();
                 loadData();
               
@@ -81,7 +86,6 @@ namespace SubmitFile
         }
 
         
-
         private void loadData()
         {
             lbFullName.Text = hasInfo["FullName"].ToString();
@@ -162,6 +166,16 @@ namespace SubmitFile
             var nameFileSelected = ob.FileName;
             ftp.delete(nameFileSelected);
             loadData();
+        }
+
+        private void BtnDangXuat_Click(object sender, RoutedEventArgs e)
+        {
+            isLogin = false;
+            lbFullName.Text = "";
+            lstvFicheiros.ItemsSource = null;
+            lstvFicheiros.Items.Clear();
+            Window_Loaded(null, null);
+            
         }
     }
 }

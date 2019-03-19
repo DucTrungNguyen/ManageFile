@@ -8,7 +8,6 @@ F:\WPF_C#\SubmitFile\SubmitFile\bin\Release\MaterialDesignColors.pdb
 F:\WPF_C#\SubmitFile\SubmitFile\bin\Release\MaterialDesignThemes.Wpf.pdb
 F:\WPF_C#\SubmitFile\SubmitFile\bin\Release\MaterialDesignThemes.Wpf.xml
 F:\WPF_C#\SubmitFile\SubmitFile\bin\Release\System.Net.FtpClient.xml
-F:\WPF_C#\SubmitFile\SubmitFile\obj\Release\SubmitFile.csprojAssemblyReference.cache
 F:\WPF_C#\SubmitFile\SubmitFile\obj\Release\frmLogin.g.cs
 F:\WPF_C#\SubmitFile\SubmitFile\obj\Release\MainWindow.g.cs
 F:\WPF_C#\SubmitFile\SubmitFile\obj\Release\ucDangKy.g.cs
