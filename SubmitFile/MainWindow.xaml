@@ -167,7 +167,9 @@
                                 Grid.Row="5"
                                 Style="{StaticResource MaterialDesignFlatButton}"
                                 Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                                Margin="0 4 0 0">
+                                Margin="0 4 0 0"
+                                x:Name="btnCapNhat"
+                                Click="BtnCapNhat_Click">
                                 Cập nhật
                             </Button>
 

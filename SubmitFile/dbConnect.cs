@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SubmitFile
 {   
@@ -16,12 +17,21 @@ namespace SubmitFile
         private static dbConnect dbCon = null;
         public static dbConnect GetConnect()
         {
-            if (dbCon == null)
+            try
             {
-                dbCon = new dbConnect();
-                cnn = new SqlConnection(strCon);
-                cnn.Open();
+                if (dbCon == null)
+                {
+                    dbCon = new dbConnect();
+                    
+                    cnn = new SqlConnection(strCon);
+                    cnn.Open();
+                }
             }
+            catch(Exception ex)
+            {
+                DialogResult result = System.Windows.Forms.MessageBox.Show("Không có kết nối mạng", "Lỗi", MessageBoxButtons.OK);
+            }
+            
             return dbCon;
         }
 

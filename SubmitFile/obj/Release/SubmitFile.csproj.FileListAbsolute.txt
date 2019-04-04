@@ -27,3 +27,4 @@ F:\WPF_C#\SubmitFile\SubmitFile\obj\Release\SubmitFile.csproj.CoreCompileInputs.
 F:\WPF_C#\SubmitFile\SubmitFile\obj\Release\SubmitFile.csproj.CopyComplete
 F:\WPF_C#\SubmitFile\SubmitFile\obj\Release\SubmitFile.exe
 F:\WPF_C#\SubmitFile\SubmitFile\obj\Release\SubmitFile.pdb
+F:\WPF_C#\SubmitFile\SubmitFile\obj\Release\SubmitFile.csprojAssemblyReference.cache

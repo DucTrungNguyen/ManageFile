@@ -201,7 +201,7 @@ namespace SubmitFile
                 /* When in doubt, use these options */
                 ftpRequest.UseBinary = true;
                 ftpRequest.UsePassive = true;
-                ftpRequest.KeepAlive = true;
+                ftpRequest.KeepAlive = true;000
                 /* Specify the Type of FTP Request */
                 ftpRequest.Method = WebRequestMethods.Ftp.MakeDirectory;
                 /* Establish Return Communication with the FTP Server */

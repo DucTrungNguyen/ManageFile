@@ -32,18 +32,13 @@ namespace SubmitFile
 
             try
             {
-                SHA1CryptoServiceProvider sha512 = new SHA1CryptoServiceProvider();
 
-                byte[] bs = System.Text.Encoding.UTF8.GetBytes(pass);
-                bs = sha512.ComputeHash(bs);
-                System.Text.StringBuilder s = new System.Text.StringBuilder();
-                foreach (byte b in bs)
-                {
-                    s.Append(b.ToString("x2"));
-                }
-                pass = s.ToString();
+                pass = SupportMethod.ConvertToSHA1(pass);
+
+                
                 string sql = "select * from _USERS where USERNAME = '" + user + "' and PASSS = '" + pass + "'";
                 System.Data.DataTable dt = dbConnect.GetDataTableBySql(sql);
+
                 if (dt.Rows.Count > 0)
                 {
                     var fullName = dt.Rows[0]["TENDAU"].ToString()  + " " + dt.Rows[0]["TENCUOI"].ToString();

@@ -117,6 +117,7 @@ namespace SubmitFile
         private string pathFile = "";
         private void BtnChonTep_Click(object sender, RoutedEventArgs e)
         {
+           
             using(OpenFileDialog openfile = new OpenFileDialog())
             {
                 openfile.Title = "Chọn tệp";
@@ -133,6 +134,8 @@ namespace SubmitFile
         private void BtnThemTep_Click(object sender, RoutedEventArgs e)
         {
             var nameFile = Path.GetFileName(pathFile);
+            var extension = Path.GetExtension(pathFile);
+
             ftp.upload(nameFile, pathFile);
             loadData();
             txtChonFile.Text = "";
@@ -176,6 +179,34 @@ namespace SubmitFile
             lstvFicheiros.Items.Clear();
             Window_Loaded(null, null);
             
+        }
+
+        private void BtnCapNhat_Click(object sender, RoutedEventArgs e)
+        {
+            var oldPass = SupportMethod.ConvertToSHA1(txtPassCu.Password);
+            if (!oldPass.Equals(dbConnect.GetStringBySql("select PASSS from _USERS  where USER = '" +hasInfo["Ten"]+ "'")))
+            {
+
+                System.Windows.MessageBox.Show("Mật khẩu cũ không chính xác", "Thông báo");
+                return;
+            }
+            if (!txtPassMoi.Password.Equals(txtXacNhan.Password))
+            {
+                System.Windows.MessageBox.Show("Mật khẩu không khớp", "Thông báo");
+                return;
+            }
+            var newPass = SupportMethod.ConvertToSHA1(txtPassMoi.Password);
+            var sql = "update _USERS set PASSS = '" + newPass + "', TENDAU = '" + txtTenDau + "', TENCUOI = '" + txtTenCuoi + "' where USER = '" +hasInfo["Ten"]+ "'";
+            try
+            {
+                dbConnect.UpdateTableBySql(sql);
+                .MessageBox.Show("Cập nhật thành công", "Thông báo");
+            }catch (Exception ex)
+            {
+
+            }
+            
+                
         }
     }
 }
